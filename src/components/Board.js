@@ -6,7 +6,15 @@ import PropTypes from 'prop-types';
 
 const generateSquareComponents = (squares, onClickCallback) => {
   // Complete this for Wave 1
-
+  const squaresGrid = [];
+  squares.forEach((row) => {
+    row.forEach((square) => {
+      squaresGrid.push(
+        <Square id={square.id} value={square.value}/>
+      );
+    });
+  });
+  return (squaresGrid);
 }
 
 const Board = ({ squares, onClickCallback }) => {
