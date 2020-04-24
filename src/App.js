@@ -25,6 +25,15 @@ const generateSquares = () => {
   return squares;
 }
 
+const changeSquare = (square) => {
+  return (
+    <div>
+      <p>{console.log("Look at me!")}</p>
+    </div>
+  );
+
+}
+
 const App = () => {
 
   const [squares, setSquares] = useState(generateSquares());
@@ -52,7 +61,7 @@ const App = () => {
         <button>Reset Game</button>
       </header>
       <main>
-        <Board squares={squares} />
+        <Board squares={squares} onClickCallback={changeSquare}/>
       </main>
     </div>
   );

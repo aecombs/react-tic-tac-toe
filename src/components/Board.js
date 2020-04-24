@@ -10,7 +10,7 @@ const generateSquareComponents = (squares, onClickCallback) => {
   squares.forEach((row) => {
     row.forEach((square) => {
       squaresGrid.push(
-        <Square id={square.id} value={square.value}/>
+        <Square id={square.id} value={square.value} onClickCallback={onClickCallback}/>
       );
     });
   });
