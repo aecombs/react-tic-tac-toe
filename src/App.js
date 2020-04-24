@@ -25,23 +25,29 @@ const generateSquares = () => {
   return squares;
 }
 
-const changeSquare = (square) => {
-  return (
-    <div>
-      <p>{console.log("Look at me!")}</p>
-    </div>
-  );
-
-}
-
 const App = () => {
-
   const [squares, setSquares] = useState(generateSquares());
+  const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
 
   // Wave 2
   // You will need to create a method to change the square 
   //   When it is clicked on.
   //   Then pass it into the squares as a callback
+  const updateSquare = (square) => {
+    const squaresCopy = generateSquares();
+    //check if a square is empty
+    if (square.value === '') {
+      //determine who is playing
+
+      //change the value
+      square.value = currentPlayer;
+      //change the current player
+      setCurrentPlayer(PLAYER_1 ? PLAYER_2 : PLAYER_1);
+      setSquares(squaresCopy);
+    } else {
+      return;
+    }
+  }
 
 
   const checkForWinner = () => {
@@ -61,7 +67,7 @@ const App = () => {
         <button>Reset Game</button>
       </header>
       <main>
-        <Board squares={squares} onClickCallback={changeSquare}/>
+        <Board squares={squares} onClickCallback={updateSquare}/>
       </main>
     </div>
   );
